@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript_ex05_배열.html</title>
+</head>
+<body>
+    <h1>배열</h1>
+    <script>
+        //배열이 갖고있는 기본 메서드
+        var myFoods = ["순대국" , "칼국수" , "자장면"]
+        var myHobby = new Array("축구" , "농구" , "게임");
+        console.log(myFoods);
+        console.log(myHobby);
+
+        //내용을 추가하는 메서드
+        myFoods.push("초밥");
+        myFoods.push("햄버거");
+        console.log(myFoods); // "순대국", "칼국수", "자장면", "초밥", "햄버거"
+        //맨뒤에 내용을 꺼내는 메서드
+        console.log(myFoods.pop());
+        console.log(myFoods); // "순대국", "칼국수", "자장면", "초밥"
+
+        // 배열의 값을 지우고 추가할 수 있는 메서드
+        // splice(시작index , 지우려는 데아타 개수, 추가할 데이타1, 추가할 데이타2... )
+        myFoods.splice(2,1, "삼겹살" , "멘보샤")
+        console.log(myFoods);
+
+        // 정렬
+        myFoods.sort(); // 오름차순 정렬
+        console.log("정렬 : ", myFoods);
+        myFoods.reverse(); // 역순으로 변경
+        console.log("역순 : " , myFoods);
+        
+        // 배열의 일부분 추출
+        var food_slice = myFoods.slice(2, 4); // index 2~3 까지 추출
+        console.log("slice(2,4)" , food_slice);
+
+        // 배열에 인덱스대신 키값으로도 만들 수 있음 // java 의 map 이랑 비슷함.
+        var myArray = [];
+        myArray["name"] = "test";
+        myArray["age"] = 100;
+        console.log('myArray["name"] : '+ myArray["name"] );
+        console.log('myArray["age"] : '+ myArray["age"] );
+
+        //push 와 splice 를 이용해서 
+        // numberArray 에 1~100 까지중 2의 배수를 넣고 출력한 뒤
+        // 그 중 3의 배수인 값들을 제거하여 다시 출력하시오.
+        var numberArray = [];
+
+        for(let i = 1; i <= 100; i++){
+            if(i%2 == 0){
+                numberArray.push(i);
+            }
+        }
+
+        console.log(numberArray);
+
+        for(let i = 0 ; i < numberArray.length;i++){
+            if(numberArray[i] % 3 === 0){
+                numberArray.splice(i,1);
+            }
+        }
+
+        // 뒤부터해야 index 가 안땡겨짐
+        for( let i = numberArray.length ; i >= 0 ; i--){
+            if(numberArray[i] % 3 == 0){
+                numberArray.splice(i,1);
+            }
+        }
+
+        console.log(numberArray);
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

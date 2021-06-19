@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript_ex06.object.html</title>
+</head>
+<body>
+    <script>
+        // 객체타입
+        /*
+            객체는 중괄호로 감싸서 만든다
+            콜론을 기준으로 key , value 쌍으로 이루어진다
+            {key1:value1 , key2:value2 , key3:value3...}
+        */
+
+        var person01 = {name:"둘리" ,age:100}
+        console.log("name : " + person01.name);
+        console.log("age : " + person01.age);
+        console.dir(person01);
+
+        var person02 ={}
+        person02.name = "고길동";
+        person02.age = 40;
+        console.dir(person02);
+        console.log("이름 : " + person02["name"]);
+        console.log("나이 : " + person02["age"]);
+        
+        person02.phone = ["갤럭시" , "아이폰" , "샤오미폰"];
+        console.log("폰 : " + person02["phone"][0]);
+        for(let i = 0 ; i < 3 ; i++){
+            console.log("폰1 : " + person02.phone[i]);
+        }
+
+        // student 객체 3개만만들어서
+        // name, kor
+        // 각각 100, 80, 60 을 넣고
+        // 평균을 구하여 출력
+
+        var student = {name: ["stutdent01","student02","student03"] , kor:[100,80,60]};
+        var sum = 0;
+        for(let i = 0 ; i < 3; i++){
+            sum += student.kor[i];
+        }
+        console.log(student);
+        console.log(sum/3);
+        
+        var student02 = [{name:"일번" ,kor:100},{name:"이번" ,kor:80},{name:"삼번" ,kor:60}]
+        var total = 0;
+        for(let i = 0 ; i < student02.length; i++){
+            total += student02[i].kor;
+        }
+        console.log(total/3);
+
+    </script>
+</body>
+</html>

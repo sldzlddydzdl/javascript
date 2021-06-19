@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript_ex03_연산자.html</title>
+</head>
+<body>
+    10 == 20 : false // 숫자 값만 비교<br>
+    10 == "10" : true // 타입 생각안하고 같으면 true<br>
+    10 === "10" : false // 타입까지 생각하고 값도 같으면 true! <br> 
+
+    같냐 === <br>
+    다르냐 !== <br>
+    같냐 == <br>
+    다르냐 !=           이렇게 있다. <br>
+    
+    변수 선언과 값 대입 <br>
+    var a = 100; <br>
+    var c = "안녕하세요"; <br>
+    typeof a : Number <br>
+    typeof c : String <br>
+
+    <hr>
+    <script>
+        if(true){
+            var var_a = 10;
+            let let_a = 10; 
+        }
+        document.write("var_a : " , var_a);
+        // document.write("let_a : " , let_a); let 은 지역변수라 정의되지않은 변수라고 나옴
+
+        const num = 100;
+        num = 200; // 오류가 생김
+
+    </script>
+    <hr>
+        <table>
+            <tr>
+                <td>변수의 선언</td>
+                <td>
+                    var 변수명 : 전역변수,  <br>
+                    let 변수명 : 지역변수 scope 가 중괄호({}) 로 구분됨 <br>
+                    const 변수명 : 상수 <br>
+                </td>
+            </tr>
+            <tr>
+                <td>타입이 뭔지</td>
+            </tr>
+        </table>
+</body>
+</html>
