@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript_ex01_dom_03.html</title>
+</head>
+<body>
+    <h1>id, class 속성</h1>
+    <ul id="parent">
+        <li>첫째</li>
+        <li>둘째</li>
+        <li>셋째
+            <ol>
+                <li>셋째의 첫째 자식</li>
+                <li>셋째의 둘째 자식</li>
+                <li>셋째의 셋째 자식</li>
+            </ol>
+        </li>
+        <li class="red blue black">넷째</li>
+    </ul>
+    <script>
+        // id를 추가 
+        var liList = document.querySelectorAll("ul>li");
+        liList[0].id = "fisrt";
+        liList[1].id = "second";
+        liList[2].id = "third";
+        liList[3].id = "fourth";
+
+        // id 를 제거
+        var ul = document.querySelector("ul");
+        ul.id = "";
+
+        // class 추가
+        var ol_li = document.querySelectorAll("ol>li");
+        for(let i = 0 ; i < ol_li.length; i++){
+            ol_li[i].className = "ch1 ch2";
+        }
+
+        // classList 이용
+        var lastLi = liList[3];
+        console.dir(lastLi);
+        lastLi.classList.add("yellow"); // yellow 를추가하고 
+        lastLi.classList.remove("blue"); // blue 는 제거한다.
+
+
+    </script>
+
+</body>
+</html>

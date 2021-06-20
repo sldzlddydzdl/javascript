@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript_ex10_dom_03_ex.html</title>
+    <style>
+        /* 글자 빨강 */
+        .f_red{color:red }
+        .f_black{color:black}
+        /* 배경을 초록 */
+        .bg_green{background: green;}
+        /* 화면에 사라지게 함 */
+        .display_none{display: none;}
+    </style>
+</head>
+<body>
+    <button >음식 종류 글자색을 빨강으로 변경</button>
+    <button >초밥을 안보이게 / 보이게</button>
+    <button >축구의 배경색을 초록으로 변경</button>
+    <hr>
+    <ul>
+        <li>음식
+            <ol>
+                <li>초밥</li>
+                <li>파스타</li>
+                <li>삼겹살</li>
+                <li>스테이크</li>
+            </ol>
+        </li>
+        <li>취미
+            <ol>
+                <li>게임</li>
+                <li>농구</li>
+                <li>축구</li>
+            </ol>
+        </li>
+    </ul>
+    <script>
+        console.log(document.querySelectorAll("button"));
+        
+        var buttons = document.querySelectorAll("button");
+        buttons[0].onclick = function() {button01()};
+        buttons[1].onclick = function() {button02()};
+        buttons[2].onclick = function() {button03()};
+
+        function button01(){
+
+            var li = document.getElementsByTagName("li");
+            console.log(li);
+
+            for(let i = 1; i < 5; i++){
+                li[i].className = "f_red";
+            }
+        }
+
+        function button02(){
+            var li = document.getElementsByTagName("li");
+            console.log(li);
+
+            if(li[1].className == "display_none"){
+                li[1].className = "f_red";
+            }else{
+                li[1].className = "display_none";
+            }
+        }
+
+        function button03(){
+            var li = document.getElementsByTagName("li");
+            li[8].className = "bg_green";
+        }
+        
+    </script>
+</body>
+</html>

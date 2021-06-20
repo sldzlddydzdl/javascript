@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript_ex09_dom_02.html</title>
+</head>
+<body>
+    <h1>요소의 내용 변경</h1>
+    <dd>
+        <h3>해당되는 요소의 내용을 가져오거나 변경하는 속성</h3>
+        <ul>
+            <li>innerHTML-요소 안쪽의 HTML</li>
+            <li>innerText-요소 안쪽의 text</li>
+            <li>outterHTML-요소 자체의 HTML</li>
+        </ul>
+    </dd>
+    <p id="ex01">안녕~<b>자바야!</b></p>
+    <p id="ex02">안녕~<b>자바야!</b></p>
+    <p id="ex03">안녕~<b>자바야!</b></p>
+    <script>
+        var ex01 = document.querySelector("#ex01");
+        var ex01_innerHTML = ex01.innerHTML;
+        console.log(ex01_innerHTML);
+        // log : 안녕~<b>자바야!</b>
+        // 변경
+        ex01.innerHTML = "<span>안녕<i>HTML</i></span>";
+        // 출력 : 안녕HTML
+        // 안녕~<b>자바야!</b> 만 변경
+
+        var ex02 = document.querySelector("#ex02");
+        var ex02_innerText = ex02.innerText;
+        console.log(ex02_innerText);
+        // log : 안녕~자바야!
+        // 변경
+        ex02.innerText = "<span>안녕<i>HTML</i></span>";
+        // 출력 : <span>안녕<i>HTML</i></span>
+        // 안녕~자바야! 만 변경
+
+        var ex03 = document.querySelector("#ex03");
+        var ex03_outterHTML = ex03.outerHTML;
+        console.log(ex03_outterHTML);
+        // log : <p id="ex03">안녕~<b>자바야!</b></p>
+        // 변경
+        ex03.outerHTML = "<section><h2>outterHTML</h2></section>"
+        // 출력 : outterHTML
+        // <p id="ex03">안녕~<b>자바야!</b></p> 통째로 바꾼다.
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript_ex09_dom_ex.html</title>
+</head>
+<body>
+    <h1>내용 변경 실습</h1>
+    <button onclick="changeWeek00()">토요일 바꾸기</button>
+    <button onclick="changeWeek01()">일요일 바꾸기</button>
+    <button onclick="changeWeek02()">모두 바꾸기</button>
+    <button onclick="changeWeek03()">원래대로</button>
+    <ul>
+        <li>월요일</li>
+        <li>화요일</li>
+        <li>수요일</li>
+        <li>목요일</li>
+        <li>금요일</li>
+        <li>토요일</li>
+        <li>일요일</li>
+    </ul>
+    <script>
+        // 토요일을 금요일로 바꾸기
+        function changeWeek00(){
+            var li = document.getElementsByTagName("li");
+            console.log(li);
+            console.dir(li);
+            // li.innerHTML = "금요일"; // innerHTML 속성을 직접 만들었으나 쓸모없다. 이런식으로 하면안된다!
+            console.dir(li[5]);
+            li[5].innerText = "금요일";
+            // li.item(5).innerText = "금요일";
+        }
+
+        // 일요일을 금요일로 바꾸기
+        function changeWeek01(){
+            var li = document.getElementsByTagName("li");
+            li[6].innerHTML = "금요일";
+            // document.getElementsByTagName("li")[6].innerText = "금요일"; // 이것도됨
+            // var li = document.getElementsByTagName("li")[6] 으로 바로 가져오기
+            // li.item(6).innerText = "금요일";
+        }
+
+        // 모두 토요일로 바꾸기 
+        function changeWeek02(){
+            var li = document.getElementsByTagName("li");
+            for(let i = 0 ; i < li.length; i++){
+                li[i].innerText = "토요일";
+                // li.item(i).innerText = "토요일";
+            }
+        }
+        
+        // 원래대로 돌려놓기
+        function changeWeek03(){
+            var ul = document.getElementsByTagName("ul");
+            ul[0].innerHTML = "<li>월요일</li><li>화요일</li><li>수요일</li><li>목요일</li><li>금요일</li><li>토요일</li><li>일요일</li>";
+            // ul.item(0).innerHTML = "<li>월요일</li><li>화요일</li><li>수요일</li><li>목요일</li><li>금요일</li><li>토요일</li><li>일요일</li>";
+        }
+    </script>
+</body>
+</html>
