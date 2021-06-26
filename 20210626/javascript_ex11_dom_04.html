@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript_ex11_dom_04.html</title>
+</head>
+<body>
+    <h1>스타일 객체를 참조하는 방법</h1>
+    <dl>
+        <dd>
+            <ul>
+                <li>element.style</li>
+                <li>html의 style 속성에 접근하는 것</li>
+                <li>html 의 인라인 속성</li>
+                <li>속성명이 카멜표현방식으로 되어있음</li>
+            </ul>
+        </dd>
+        <dt>사용방법</dt>
+        <dd>
+            <ul>
+                <li>element.style.backgroundColor = "black"</li>
+                <li>element.style.background = "black url('image.jpeg') repeat-y"</li>
+            </ul>
+        </dd>
+    </dl>
+    <div id="container">
+        <section>본문</section>
+        <aside onclick="chAside(this)">기타</aside>
+    </div>
+    <button onclick="onContainer()">컨테이너 바꾸기</button>
+    <button onclick="chSection()">본문 바꾸기</button>
+    <!-- <button onclick="chAside()">Aside 바꾸기</button> -->
+    <!-- 
+    <style>
+        #container{background-color: lightgreen;} css 이면 이렇게
+    </style>
+     -->
+    <script>
+        // var li = document.querySelector("li");
+        // console.dir(li);
+        /* 컨테이너 바꾸기클릭시 id가 countainer 인 아이의 넓이를 500px , 높이를 400px 로 배경은 lightgreen */
+        function onContainer(){
+            var cont = document.getElementById("container");
+            cont.style.width = "500px";
+            cont.style.height = "400px";
+            cont.style.backgroundColor = "lightgreen";
+            console.log(cont);
+            console.dir(cont);
+        }
+        /* section 의 마진을 50px 30px 50px 30px 검정테두리 1px 실선 */
+        function chSection(){
+            var section = document.querySelector("div#container>section");
+            section.style.margin = "50px 30px";
+            section.style.border = "5px solid black";
+        }
+
+        /* aside 태그를 클릭했을때 테두리를 2px 점선 둥근테두리로 파랑색으로 만들어보세요 */
+        // function chAside(ele){
+        //     console.dir(ele);
+        //     var aside = document.querySelector("div#container>aside");
+        //     aside.style.border = "2px Dotted blue";
+        //     aside.style.borderRadius = "1.0em 1.0em 1.0em 1.0em";
+        // }
+
+        function chAside(ele){
+            ele.style.border = "2px dotted blue";
+            ele.style.borderRadius = "5px";
+        }
+    </script>
+</body>
+</html>

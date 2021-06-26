@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table{border : 1px solid black; border-collapse: collapse; width: 100%;}
+    th,td{border: 1px solid black}
+</style>
+
+<body>
+    <input type="text" id="name" placeholder="이름을 입력하세요">
+    <input type="text" id="age" placeholder="나이를 입력하세요">
+    <button type="button" onclick="addRow()">추가</button>
+    <button type="button" onclick="delRow()">삭제</button>
+
+    <hr>
+
+    <table id="table">
+        <tr>
+            <th>이름</th>
+            <th>나이</th>
+        </tr>
+        <tr>
+            <td>글</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>김동현</td>
+            <td>27</td>
+        </tr>
+    </table>
+    <script>
+        // window.addEventListener("DOMContentLoaded" ,function(){
+            // 이름과 나이를 입력 후 추가 버튼을 클릭시
+            // 테이블 안쪽에 이름, 나이 값이 들어가도록 기능을 구현하세요
+            // 추가
+    
+          
+            // 이름을 인풋에 입력 후 삭제 버튼을 클릭 시 해당되는 이름이 있는
+            // row 전체 삭제
+    
+    
+            // 선택실습!!
+            // 더블클릭시 해당되는 내용을 해당되는 컬럼에서 수정할 수 있도록 기능구현.!
+    
+        // })
+    
+        function delRow(){            
+               var table = document.getElementById("table");
+            //    console.log(table.lastElementChild.childNodes);
+
+            //    var length = table.lastElementChild.childNodes.length;
+            //    console.log(table.lastElementChild.childNodes.length);
+            //    console.log(table.lastElementChild.childNodes[length-2]);
+               console.log(table.childNodes[1].lastChild);
+               console.log(table.childNodes[1].lastElementChild);
+            //    table.remove(table.lastElementChild.childNodes[length-2]);
+            //    table.removeChild(table.lastElementChild);
+            console.log(table.childNodes[1].lastElementChild);
+            //    table.remove(table.childNodes[1].lastElementChild);
+               table.childNodes[1].lastElementChild.innerHTML = "";
+        }
+
+        function addRow(){
+            var name = document.getElementById("name");
+            var age = document.getElementById("age");
+
+            var table = document.getElementById("table");
+            console.log(table.lastElementChild.lastElementChild);
+            var newTr = document.createElement("tr");
+            var newTd01= document.createElement("td");
+            var newTd02= document.createElement("td");
+            newTd01.innerHTML= name.value;
+            newTd02.innerHTML = age.value;
+            // table.lastElementChild.lastElementChild
+            table.lastElementChild.appendChild(newTr);
+            table.lastElementChild.appendChild(newTd01);
+            table.lastElementChild.appendChild(newTd02);
+        }
+    
+    </script>
+</body>
+</html>

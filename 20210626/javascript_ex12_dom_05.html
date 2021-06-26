@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript_ex12_dom_05.html</title>
+    <style>
+        .userId_error{color: red;}
+        .display_none{display: none;}
+        .position_error{color: red;}
+        .hobby_error{color: red;}
+    </style>
+</head>
+<body>
+    <h1>폼, 인풋</h1>
+    <dl>
+        <dt>폼 객체 사용방법</dt>
+        <dd>
+            <ul>
+                <li>폼 객체는 name 속성으로 접근이 가능함</li>
+                <li>document.(폼 name 속성명).(인풋의 name속성명)</li>
+                <li>태그 명으로도 접근이 가능함</li>
+                <li>value 를 이용하여 데이타를 넣음</li>
+            </ul>
+        </dd>
+    </dl>
+    <br><br><br><br><br>
+    
+    <form name="joinForm">
+        <span class="userId_error display_none">아이디는 비어있으면 안되요</span>
+        <input type="text" name="userId" placeholder="아이디를 입력하세요">
+        <fieldset>
+            <span class="hobby_error display_none">취미는 최소 한개 이상 선택해야합니다</span>
+            <legend>취미</legend>
+            <label><input type="checkbox" name="hobby" value="game">게임</label>
+            <label><input type="checkbox" name="hobby" value="study">공부</label>
+            <label><input type="checkbox" name="hobby" value="sleep">잠</label>
+        </fieldset>
+        <fieldset>
+            <span class="position_error display_none">포지션은 필수입니다.</span>
+            <legend>포지션</legend>
+            <label><input type="radio" name="position" value="top">탑</label>
+            <label><input type="radio" name="position" value="mid">미드</label>
+            <label><input type="radio" name="position" value="bottom">봇</label>
+        </fieldset>
+        <button type="button" onclick="check()">가입</button>
+    </form>
+    <script>
+        function check(){
+            // document.querySelector("form");
+            var form = document.joinForm;
+            console.log(form);
+            var userIdInput = form.userId;
+            console.log(userIdInput.value);
+            if(userIdInput.value == ""){
+                var idError = document.querySelector(".userId_error");
+                idError.classList.remove("display_none");
+     //           return; // 리턴을 중간에 하면 여기서는 함수를 강제종료해서 더이상 submit 을 진행하지않게된다.
+            }else{
+                var idError = document.querySelector(".userId_error");
+                idError.classList.add("display_none");    
+            }
+
+            // 취미 체크
+            var hobby = form.hobby;
+            console.dir(hobby);
+            let cnt = 0;
+            for(h of hobby){
+                if(h.checked == false){ // radio 나 checkbox 는 checked 로 논리를 구현할수 있다.
+                    cnt++;
+                }
+            }
+            if(cnt == 3){
+                document.querySelector(".hobby_error").classList.remove("display_none");
+   //             return;
+            }else{
+                document.querySelector(".hobby_error").classList.add("display_none");
+            }
+
+            // 포지션 체크
+            var po = form.position;
+            cnt = 0;
+            for(p of po){
+                if(p.checked == false){
+                    cnt++;
+                }
+            }
+
+            if(cnt == 3){
+                document.querySelector(".position_error").classList.remove("display_none");
+     //           return; 
+            }else{
+                document.querySelector(".position_error").classList.add("display_none");
+            }
+
+            // 정상일때 서버 전송
+
+
+        }
+    </script>
+</body>
+</html>
