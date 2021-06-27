@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript_ex15_bom.html</title>
+    <script>
+        window.addEventListener("DOMContentLoaded" , function(){
+
+            var gotoNaver = document.querySelector("#gotoNaver");
+            gotoNaver.onclick = function(){
+                location.href = "https://www.naver.com";
+            }
+
+            // 삭제버튼
+            var span = document.createElement("span");
+            document.querySelector("#ex01").onclick = function(){
+                var result = confirm("정말로 진심으로 게시판을 삭제하시겠습니까?");
+                if(result){
+                    span.innerHTML = "삭제되었슴!";
+                    this.parentElement.appendChild(span);
+                }
+                else{
+                    span.innerHTML = "삭제되지 않았음";
+                    this.parentElement.appendChild(span);
+                }
+            }
+
+            // 반복해서 숫자 1을 ex02안쪽에 넣는 코드 
+            setInterval(function(){
+                if(document.querySelector("#ex02").textContent.length < 10){
+
+                    document.querySelector("#ex02").innerHTML += 1;
+                }else{
+
+                }
+            },1000)
+
+            var intervalObj;
+            document.querySelector("#ex03").onclick = function(){
+                // setInterval(function(){
+                //     document.querySelector("#result").innerHTML = new Date();
+                // },1000)
+                intervalObj = setInterval(()=>{
+                    var d = new Date();
+                    var str = d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
+                    document.querySelector("#result").innerHTML = str;
+                } , 1000)
+            }
+
+            document.querySelector("#ex04").onclick = function(){
+                // 인터벌을 지워줌
+                clearInterval(intervalObj);
+            }
+        })
+    </script>
+</head>
+<body>
+    <h1>bom</h1>
+    <p id="gotoNaver">네이버로 이동!</p>
+
+    <button id="ex01">게시판 삭제</button>
+
+    <div id="ex02"></div>
+
+    <button id="ex03">시작</button>
+    <button id="ex04">정지</button>
+    <div id="result"></div>
+</body>
+</html>

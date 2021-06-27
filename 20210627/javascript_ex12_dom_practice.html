@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>1. 두수를 입력받아 버튼을 클릭 시 , 해당되는 연산</p>
+    <p>을 수행하는 p태그 안쪽에 결과값을 출력하는 코드 작성</p>
+    <form id="calculate">
+        <input type="text" name="first">
+        <input type="text" name="second"><br>
+
+        <p id="result">None</p>
+
+        <button type="button" onclick="add()">더하기</button>
+        <button type="button" onclick="sub()">뺴기</button>
+        <button type="button" onclick="times()">곱하기</button>
+        <button type="button" onclick="divide()">나누기</button>
+    </form>
+
+    <form id="calculate02">
+        <p>2. 두 수를 입력받아 버튼 클릭시 라디오 버튼으로 선택된 연사을 수행 후 p태그 안쪽에</p>
+        <p>결과값을 출력하는 코드 작성</p>
+
+        <input type="text" name="number01">
+        <input type="text" name="number02">
+
+        <fieldset>
+            <legend>연산</legend>
+            <label><input type="radio" name="cal" value="plus">+</label> 
+            <label><input type="radio" name="cal" value="time">*</label> 
+            <label><input type="radio" name="cal" value="minus">-</label> 
+            <label><input type="radio" name="cal" value="div">/</label> 
+        </fieldset>
+
+        <p id="result03">None</p>
+        <button type="button" onclick="radioCal()">확인</button>
+    </form>
+
+    <form id="calculate04">
+        <p>3. 두 수를 입력받아 버튼 클릭시 라디오 버튼으로 선택된 연산을 수행 후 p태그 안쪽에 결과값을 출력하는 코드 작성 </p>
+        <input type="text" name="number03">
+        <select name="op" id="op01">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <input type="text" name="number04">
+        <button type="button" onclick="selectCal()" >확인</button>
+        <p id="result04">None</p>
+    </form>
+
+    <hr>
+
+    <form id="calculate05">
+        <p>4. 버튼으로 입력된 식을 계산하여 p태그에 출력</p>
+        <input type="text" id="last"><br>
+        <button type="button" onclick="numberCal(this)">1</button>
+        <button type="button" onclick="numberCal(this)">2</button>
+        <button type="button" onclick="numberCal(this)">3</button><br>
+        <button type="button" onclick="numberCal(this)">4</button>
+        <button type="button" onclick="numberCal(this)">5</button>
+        <button type="button" onclick="numberCal(this)">6</button><br>
+        <button type="button" onclick="numberCal(this)">7</button>
+        <button type="button" onclick="numberCal(this)">8</button>
+        <button type="button" onclick="numberCal(this)">9</button><br>
+        <button type="button" onclick="numberCal(this)">0</button><br>
+        <button type="button" onclick="numberCal(this)">+</button>
+        <button type="button" onclick="numberCal(this)">-</button>
+        <button type="button" onclick="numberCal(this)">확인</button>
+        <p id="result05">None</p>
+    </form>
+
+
+    <script>
+        function add(){
+            
+            var form = document.querySelector("form");
+            console.log(form);
+            var a = form.first.value;
+            var b = form.second.value;
+            console.log(parseInt(a, 10)+parseInt(b,10));
+            
+            console.log(a.value);
+            console.log(b.value);
+            var result = document.getElementById("result");
+            
+            result.innerText = parseInt(a,10)+parseInt(b,10);
+            console.log(result);
+            console.dir(result);
+        }
+
+        function sub(){
+            var form = document.getElementById("calculate");
+
+            var a = form.first.value;
+            var b = form.second.value;
+
+            var result = document.getElementById("result");
+            result.innerText = parseInt(a, 10)-parseInt(b,10);
+        }
+
+        function times(){
+            var form = document.querySelector("#calculate");
+
+            var a = form.first.value;
+            var b = form.second.value;
+
+            var result = document.getElementById("result");
+            result.innerText = parseInt(a, 10)*parseInt(b,10);
+        }
+
+        function divide(){
+            var form = document.querySelector("#calculate");
+
+            var a = form.first.value;
+            var b = form.second.value;
+
+            var result = document.getElementById("result");
+            result.innerText = (parseInt(a, 10)/parseInt(b,10)).toFixed(3);
+        }
+
+        function radioCal(){
+            var form = document.querySelector("#calculate02");
+            var rst = document.getElementById("result03");
+            console.log(rst);
+            var a = form.number01.value;
+            var b = form.number02.value;
+            console.log("a : " ,a);
+            console.log("b : " ,b);
+            var cal = form.cal;
+            console.log(cal);
+            var qq = 0;
+   
+            if(cal.value == "plus"){
+                console.log("cal.value : " ,cal.value);
+
+                rst.innerText = parseInt(a, 10)+parseInt(b,10);
+            }
+            else if(cal.value == "time"){
+                rst.innerText = parseInt(a,10)*parseInt(b,10);
+            }
+            else if(cal.value == "minus"){
+                rst.innerText = parseInt(a,10)-parseInt(b,10);
+            }
+            else if(cal.value == "div"){
+                rst.innerText = (parseInt(a,10)/parseInt(b,10)).toFixed(3);
+            }  
+        }
+
+        function selectCal(){
+            var form = document.getElementById("calculate04");
+            var rst = document.getElementById("result04");
+            var op = document.getElementById("op01").value;
+
+            var a = form.number03.value;
+            var b = form.number04.value;
+            if(op == "+"){
+                rst.innerText = parseInt(a,10)+parseInt(b,10);
+            }
+            else if(op == "-"){
+                rst.innerText = parseInt(a,10)-parseInt(b,10);
+            }
+            else if(op == "*"){
+                rst.innerText = parseInt(a,10)*parseInt(b,10);
+            }
+            else if(op == "/"){
+                rst.innerText = (parseInt(a,10)/parseInt(b,10)).toFixed(3);
+            }
+
+        }
+
+        function numberCal(value){
+            var form = document.getElementById("calculate05");
+            var last = form.last;
+            var result = document.getElementById("result05");
+            
+            if(value.innerText == "확인"){
+
+                // var strOp = last.value.match(/[^0-9]/g);
+                // console.log(strOp);
+
+                // var strNum = last.value.match(/[^+-.]/g);
+                // console.log(strNum);    
+                console.log(last.value.toString());
+
+
+                var str = last.value.toString();
+                console.log("str :" ,str);
+                console.log("str.length : ", str.length);
+                console.log("last str : " + str[str.length-1]);
+                
+                if(str[str.length-1]=="-" || str[str.length-1] =="+"){
+                    last.value= "";
+                    result.innerText="올바른연산이 아닙니다.";
+                }else{
+                    result.innerText = eval(last.value);
+                    last.value = "";    
+                }
+            }
+            else{
+                last.value += value.innerText;
+            }
+        }
+
+    </script>
+</body>
+</html>
