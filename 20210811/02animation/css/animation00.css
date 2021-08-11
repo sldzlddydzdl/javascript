@@ -1,0 +1,41 @@
+@charset "UTF-8";
+/* CSS Document */
+/*keyframes*/
+@keyframes pos{
+	0%{
+		left: 0;
+	}
+	100%{
+		left: 500px;
+	}
+}
+
+@keyframes opacity{
+	0%{opacity: 1;}
+	50%{opacity: 0.1;}
+	100%{opacity: 0.9;}
+}
+	
+div{width:100px; height:100px; 
+			position:absolute; left:0px; top:0px;
+			background:#9F0;
+			animation-name: pos,opacity;
+			animation-duration: 1s, 2s;
+			animation-timing-function: ease-out,ease ;
+			animation-iteration-count: 2,4;
+			/* animation-direction: normal; */
+			/* animation-direction: alternate; */
+			/* animation-direction: reverse; */
+			animation-direction: alternate-reverse, alternate; 
+			/* animation-fill-mode: forwards;
+			animation-play-state: paused; */
+}
+p{
+	width: 100px; height: 100px;
+	position: absolute; left: 0; top: 300px;
+	background-color: #666;
+	border-radius: 50%;
+	animation : pos 2s ease-in infinite alternate,
+				opacity 1s ease-in infinite normal;
+
+}
