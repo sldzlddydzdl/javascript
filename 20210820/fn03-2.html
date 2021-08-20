@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>event 속성 사용하기1</title>
+</head>
+<body>
+<button  type="button" name="5">변수의 값 추가</button> 
+<p class="text"></p>
+<script>
+   // 데이터 정리 
+   const BTN = document.querySelector('button');
+   const TEXT = document.querySelector('p.text');
+   let VAL = BTN.getAttribute('name');
+   let num;
+
+   // console.log(VAL);
+
+   function play(){
+    if(num){
+        TEXT.innerHTML = '변수의 값'+num;
+    }else{
+        TEXT.innerHTML = '변수의 값이 없습니다.';
+    }
+   }
+
+   play();
+   BTN.onclick = function(){
+       num = VAL;
+       play();
+   }
+
+</script>
+</body>
+</html>

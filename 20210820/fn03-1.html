@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>event 속성 사용하기1</title>
+</head>
+<body>
+  <p class="btn">
+    <button type="button" value="red">red</button>
+  </p>
+  <p class="text"></p>
+  <script>
+  // 데이터 정리 
+  const BTN = document.querySelector('p.btn>button');
+  const TEXT = document.querySelector('p.text');
+  const VAL = BTN.getAttribute('value');
+  // console.log(BTN+':'+TEXT+':'+VAL);
+  // 함수
+  // innerHTML
+
+  // 오브젝트.innerHTML = 값;
+  // let 그릇 = 오브젝트.innerHTML
+
+function play(){
+  TEXT.innerHTML = VAL+'가 클릭되었습니다.';
+}
+
+  BTN.onclick = play;
+  </script>
+</body>
+</html>
