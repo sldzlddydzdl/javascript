@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>return 문 사용하기</title>
+</head>
+<body>
+<script>
+  //함수1
+  function sum(x) {
+    let y = x*10;
+    return y;
+  }
+  // sum(1);
+  console.log(sum(1));
+  let a = 5;
+  let b = sum(a);
+  console.log(b);
+
+  //함수2
+  function all(a, b){
+    let result;
+    a>b ? result = console.log('a가 크다') : result = console.log('b가 크다');
+    return result;
+  }
+
+  all(234,567);
+
+  let first = 3;
+  let second = 2;
+  all(first, second);
+
+</script>
+</body>
+</html>
