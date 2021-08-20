@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>let  변수 사용하기</title>
+   
+</head>
+
+<body>
+
+<script>
+    function logYes(){
+        let local = 2;
+        {
+            let local = '다른값';
+            console.log('if문 안의 local' , local);
+        }
+        console.log('함수의 안의 local', local);
+        (function hello(){
+            console.log('안녕하세요');
+        })()
+    }
+    logYes();
+</script>
+
+</body>
+
+
+
+</html>

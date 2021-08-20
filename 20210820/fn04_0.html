@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>지역변수 전역변수</title>
+</head>
+
+<body>
+    <script>
+        function love(){
+            a = '달';
+            let b = '꽅';
+            console.log('함수의 전역',a,'함수의 지역',b);
+        }
+        love();
+        console.log(b);
+        console.log(a);
+        // love();
+
+
+
+    </script>
+<!--
+함수 love 출력하기
+지역변수 b 출력하기
+전역변수 a 출력하기
+-->
+
+</body>
+</html>

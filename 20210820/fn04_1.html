@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>let의 영역변수 사용하기</title> 
+</head>
+<body>
+<script>
+    function logYes(){
+        var local = 2;
+        if(local){
+            var local = '다른 값';
+            console.log(local);
+        }
+        console.log('함수의 안의 local' , local);
+    }
+    logYes();
+</script>
+</body>
+</html>
