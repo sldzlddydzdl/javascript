@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>array_basic</title>
+</head>
+
+<body>
+<script>
+    // 인스턴스 -> 내장객체
+    // 기본형
+    let pen = new Array();
+    pen[0] = 'red';
+    pen[1] = 'blue';
+    pen[2] = 'green';
+    pen[3] = 'orange';
+    console.log(pen);
+    console.log(pen[2]);    
+
+    console.log("pen[3] 변경 전 : " + pen[3] );
+    pen[3] = 'skyblue';
+    console.log("pen[3] 변경 후 : " +  pen[3]);
+
+    for(let i = 0 ; i < pen.length; i++){
+        document.write(pen[i]+"<br>");
+    }
+
+    // 방법2
+    let room = new Array();
+    room = ['red' , 'blue' , 'green' , 'orange'];
+    console.log(room);
+
+    color = ['red' , 'pink' , 'blue'];
+    console.log(color);
+
+    // 방법3
+    let some = new Array('pink' , 'yellow' ,'green');
+    console.log(some);
+
+    // 방법4
+    str = []; // 이렇게만해도 array 로 인식하게 된다.
+    console.log(str);
+    console.log(room.length);
+
+    // 메서드
+    let num = ['산','강','꽃'];
+    // concat() -> 기존배열 + 추가배열 -> 새로운
+    let all = room.concat(num);
+
+    console.log(all);
+    console.log(room.concat(num));
+
+</script>
+</body>
+
+</html>
