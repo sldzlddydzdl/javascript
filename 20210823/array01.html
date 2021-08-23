@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>forEach()</title>
+</head>
+<body>
+ <script>
+
+    var Num = [1,2,3,4];
+
+    Num.forEach(function(item , num){
+        // document.write(num, ':',item*2+'<br>');
+        document.write('no', num , ' pic' +item+'.jpg<br>');
+    });
+    Num.forEach((item,num) => {
+        document.write(item*3,'<br>');
+    })
+
+ </script>
+</body>
+</html>
