@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>new Object</title>
+</head>
+<body>
+ <script>
+    // 객체 만들기 기본형
+    let course = new Object();
+
+    // 데이터 정리, 속성만들기
+    course.title ="JAVA";
+    course.teacher = "A강사";
+    course.level = 1;
+    course.num = 1;
+
+    // 메서드 만들기, 기능만들기
+    course.info=function(){
+        document.write(
+        '강좌 '+course.title+'의 이 강사는' 
+        +course.teacher+' 이고 레벨 ' 
+        +course.level+' 이고 현재 학생수는 ' 
+        +course.num+' 입니다.<br>');
+    }
+
+    course.numPlus= function(){
+        return ++ course.num ;
+    }
+
+    course.info();
+    console.log(course.teacher);
+    course.teacher = 'B강사';
+    course.info();
+
+    course.numPlus();
+    course.numPlus();
+    course.numPlus();
+
+    course.info();
+
+ </script>
+</body>
+</html>
