@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DOM</title>
+
+</head>
+
+<body>
+<script>
+    function COURSE(title, level, people){
+        this.title = title;
+        this.level = level;
+        this.people = people;
+        this.action = function(){
+            document.write(
+                `
+                과정명은 : ${this.title}
+                레벨은 : ${this.level}
+                인원수는 : ${this.people}
+                입니다.<br>
+                `
+            )
+        }
+    }
+
+    let COU = [
+        new COURSE('javascript' , 2, 9),
+        new COURSE('html' , 1, 10),
+        new COURSE('jquery' , 1, 10)
+    ]
+
+    console.log(COU[0].title);
+    console.log(COU[2].people);
+    // COU[1].action();
+
+    let num = COU.length;
+    console.log(num);
+    for(let i = 0 ; i <= num -1; i++){
+        COU[i].action();
+    }
+    
+</script>
+</body>
+
+
+
+</html>
