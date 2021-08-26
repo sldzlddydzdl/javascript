@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사용자 객체1</title>
+    <link rel="stylesheet" href="css/box.css">
+</head>
+<body>
+
+    <p><button type="button">콘텐츠 입력</button></p>
+    <dl>
+        <dt></dt>
+        <dd></dd>
+        <dd></dd>
+    </dl>
+
+       <!-- images/pic01.jpg 
+        에펠탑의 신랑신부 
+        마르크 샤갈 
+        1938 -->
+        
+    <script>
+        let picture = {
+            title : '에펠탑의 신랑신부',    
+            pic : 'images/pic01.jpg',
+            artiste : '마르크 샤갈',
+            year : '1938',
+            action: function(){
+                document.querySelector('dl>dt').innerHTML = picture.title;
+                document.querySelector('dl>dd:nth-child(2)').innerHTML = `<img  src="${picture.pic}" alt="${picture.title}" >`; 
+                document.querySelector('dl>dd:nth-child(3)').innerHTML = picture.artiste;
+            }
+        }
+
+        document.querySelector('button').onclick = function(){
+            picture.action();
+        }
+        console.log( document.querySelector('dl>dt'));
+        console.log( document.querySelector('dl>dd:nth-child(2)'));
+        console.log(  document.querySelector('dl>dd:nth-child(3)'));
+
+        for(let i = 0 ; i < 7; i ++){
+            console.log(document.querySelector("dl>dt:nth-child("+i+")"));
+        }
+
+
+
+    </script>
+</body>
+</html>
