@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사용자 객체1</title>
+    <link rel="stylesheet" href="css/box.css"></head>
+<body>
+
+<!-- images/pic01.jpg 
+        에펠탑의 신랑신부 
+        마르크 샤갈 
+        1938 -->
+        <dl>
+            <dt></dt>
+            <dd>
+                <img src="" alt="">
+            </dd>
+            <dd></dd>
+        </dl>
+
+
+    <script>
+        let picture =new Object();
+        picture.pic = 'images/pic01.jpg';
+        picture.title = '에펠탑의 신랑신부';
+        picture.artiste = '마르크 샤갈';
+        picture.year = 1938;
+
+        const dl = document.querySelector('dl');
+        console.log(dl);        
+        console.log(dl.childNodes[1]);
+
+        const dt = document.querySelector('dt');
+        dt.innerHTML = picture.title;
+
+        const dd = document.querySelectorAll('dd');
+
+        dd.item(1).innerHTML = picture.artiste;
+
+        const img = document.querySelector('img');
+        img.setAttribute('src' , picture.pic);
+        img.setAttribute('alt' , picture.title);
+
+        picture.action = function(){
+            // document.write('<dl><dt>'+picture.title+'</dt><dd><img src = "'+picture.pic+'" alt = "'+picture.title+'"></dd><dd>'+picture.artiste+'</dd></dl>');
+            document.write(`
+                <dl>
+                    <dt>${picture.title}</dt>
+                    <dd>
+                        <img src="${picture.pic}" alt="${picture.title}">
+                    </dd>
+                    <dd>${picture.artiste}</dd>
+                </dl>    
+            `);
+        }
+        picture.action();
+        
+
+    </script>
+</body>
+</html>
