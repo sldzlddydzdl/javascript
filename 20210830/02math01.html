@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Math:basic</title>
+<script type="text/javascript">
+
+</script>
+</head>
+
+<body>
+<script type="text/javascript">
+//2*2*2 : pow
+let num = Math.pow(2,8);
+console.log(num);
+
+//무작위:random
+let som01 = Math.random();
+console.log(som01);
+
+//0~최대의 숫자
+let som02 = Math.random()*600;
+console.log(som02);
+
+//최소 ~최대의 숫자
+//Math.random()*(max-min)+min;
+let som03 = (Math.random()*500)+100;
+console.log(som03);
+console.log(Math.ceil(som03)); 
+console.log(Math.floor(som03));
+console.log(Math.round(som03));
+
+// 반올림:round, floor, ceil
+document.write(`ceil : 4.67 -> ${Math.ceil(4.67)} <br>`);
+document.write(`ceil : 4.36 -> ${Math.ceil(4.36)} <br>`);
+document.write(`ceil : 4.67 -> ${Math.floor(4.67)} <br>`);
+document.write(`ceil : 4.36 -> ${Math.floor(4.36)} <br>`);
+document.write(`ceil : 4.67 -> ${Math.round(4.67)} <br>`);
+document.write(`ceil : 4.36 -> ${Math.round(4.36)} <br>`);
+
+// 50 ~ 400
+let Ram = Math.ceil((Math.random()*350)+50);
+console.log(Ram);
+
+//최대:max -> 정렬이 아님
+console.log(Math.max(234,456,111,11,'1111'));
+// 최소:min -> 정렬이 아님
+console.log(Math.min(234,456,111,11,'1',1111));
+
+</script>
+</body>
+</html>
