@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sample</title>
+  </head>
+  <body>
+    <div id="wrap">
+    <!-- headerWrap -->
+    <div id="headerWrap">
+      <header>
+        <h1><a href="#">My Portfolio</a></h1>
+        <nav>
+          <h2 class="hideClass">메인네비게이션</h2>
+          <ul>
+            <li><a href="#">home</a></li>
+            <li><a href="#">about</a></li>
+            <li><a href="#">portfolio</a></li>
+            <li><a href="#">contact</a></li>
+          </ul>
+        </nav>
+        <!-- nav버튼 -->
+        <p id="button">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </p>
+      </header>
+    </div>
+
+<script>
+const BUTTON = document.getElementById('button');
+
+console.log(BUTTON);
+
+const LI = document.getElementsByTagName('li');
+console.log(LI);
+
+const UL = document.querySelector('ul');
+console.log(UL);
+const NAV = document.querySelectorAll('ul>li>a');
+console.log(NAV);
+console.log(NAV[2]);
+const NAV2 = document.querySelector('ul>li>a');
+console.log(NAV2);
+</script>
+  </body>
+</html>
