@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <style>
+  section{
+   width:800px; margin: 50px auto 0;
+   border:3px solid #666;
+   padding:40px 0;}
+  button{width:150px; 
+  display:block;
+  margin: 0 auto 50px;
+  font:bold 20px Arial,sans-serif;
+  color:#0c3177;
+  border:1px solid #666;}
+  div{
+   width: 300px;
+   font:20px/50px Arial,sans-serif;
+   color:red;
+   border:1px solid #ddd;
+   margin: 0 auto;
+   text-align:center;
+  }
+ </style>
+ <title>event</title>
+
+</head>
+<body>
+ <section>
+  <button type="text" onclick="btn()">버튼1</button>
+
+<div>0</div>
+ </section>
+
+<script>
+// <p onclick = 함수명(인수)></p>
+
+// 오브젝트.addEventListener('이벤트명' , '함수');
+// 오브젝트.addEventListener('이벤트명', function(){실행문;});
+
+// a 링크 에 적용 
+// e.preventDefault();
+
+// 이벤트 겹치기 말기 -> 
+// e.stopPropagation();
+let i = 0;
+
+function btn(){
+  ++i;
+  document.querySelector('div').innerHTML = i;
+}
+
+
+
+</script>
+
+</body>
+</html>
