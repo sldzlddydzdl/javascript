@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>creatElement</title>
+    <style>
+    *{margin:0; padding:0;}
+    img{max-width:100%;}
+      .picBox {
+      	margin: 2em auto;
+      	width: 500px;
+      }
+
+      .picBox figcaption {
+      	margin-top: 1em;
+      	padding-right: 30%;
+      	padding-left: 1em;
+      	font-style: italic;}
+    </style>
+  </head>
+  <body>
+    <figure class="picBox">
+        <img src="images/earth.jpg" alt="우주에서 본 지구의 모습입니다.">
+        <!-- <figcaption> 우주에서 본 지구의 모습입니다. </figcaption> -->
+    </figure>
+    <script>
+    // 1. 필요한 DOM 만들기
+    const BOX = document.querySelector('.picBox');
+    const IMG = document.querySelector('.picBox>img');
+    
+    // 2. 소스 만들기
+    let  ALT = IMG.getAttribute('alt');
+    console.log(ALT);
+    
+    // 3. creat
+    let FIGCAPTION = document.createElement('figcaption');
+    console.log(FIGCAPTION);
+    let FIGTEXT = document.createTextNode(ALT);
+    console.log(FIGTEXT);
+    
+    // 4. 적용하기
+    FIGCAPTION.appendChild(FIGTEXT);
+    console.log(FIGCAPTION);
+
+    // 5. 마지막 셋팅
+    BOX.appendChild(FIGCAPTION);
+
+
+    </script>
+  </body>
+</html>
