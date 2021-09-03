@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘 시간</title>
+</head>
+<body>
+    <!-- ?? 년 ?? 월 일 -->
+    <p>
+        <span class="no01">YYYY</span>
+        <span class="no02">MM</span>
+        <span class="no03">DD</span>
+        <span class="no04">B요일</span>
+    </p>
+    <!-- ?? 시 ?? 분 ?? 초 -->
+    <p>
+        <span class="t01">03</span> :
+        <span class="t02">50</span> :
+        <span class="t03">55</span>
+    </p>
+    <script>
+//        1. querySelector
+//        2. Date 생성
+//        3. innerHTML 
+//        4. timer
+
+    // 인스턴스 
+    const hrText = document.querySelector('.t01');
+    const minText = document.querySelector('.t02');
+    const secText = document.querySelector('.t03');
+
+    const year = document.querySelector('.no01');
+    const month = document.querySelector('.no02');
+    const dateText = document.querySelector('.no03');
+    const dayText = document.querySelector('.no04');
+
+    // 함수
+    function time(){
+        let date = new Date();
+        // console.log(date);
+        let hr = date.getHours();
+        let min = date.getMinutes();
+        let sec = date.getSeconds();
+
+        // 시간
+        // hrText.innerHTML = hr;
+        if(hr > 12){
+            // hrText.innerHTML = '오후' + (hr-12);
+            // hrText.innerHTML = `오후 ${hr-12}`;
+            hrText.innerHTML = hr-12<10 ? `오후 0${hr-12}` : `오후 ${hr-12}`;
+        }else{
+            // hrText.innerHTML = `오전 ${hr}`;
+            hrText.innerHTML = hr<10 ? `오전 0${hr}` : `오전 ${hr}`;
+        }
+        // 분
+        // minText.innerHTML = min;
+        minText.innerHTML = min<10 ? `0${min}` : `${min}`;
+        // 초
+        //secText.innerHTML = sec;
+        secText.innerHTML = sec < 10? `0${sec}` : `${sec}`;
+
+        // day
+        let Y = date.getFullYear();
+        let M = date.getMonth()+1;
+        let D = date.getDate();
+        let S = date.getDay();
+
+        year.innerHTML = `${Y} 년도 `;
+        month.innerHTML = `${M} 월 `;
+        dateText.innerHTML = `${D} 일`;
+
+        switch(S){
+            case 0 : dayText.innerHTML = '일요일';
+            break;
+            case 1 : dayText.innerHTML = '월요일';
+            break;
+            case 2 : dayText.innerHTML = '화요일';
+            break;
+            case 3 : dayText.innerHTML = '수요일';
+            break;
+            case 4 : dayText.innerHTML = '목요일';
+            break;
+            case 5 : dayText.innerHTML = '금요일';
+            break;
+            case 6 : dayText.innerHTML = '토요일';
+            break;
+        }
+
+    }
+    // 타이머 작동
+    time();
+    setInterval(time, 1000);
+    </script>
+</body>
+</html>
