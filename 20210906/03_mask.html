@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>마스크</title>
+<style>
+/* 마스크하기 */
+#mas {
+	position:relative;
+	margin:100px auto;
+	width:300px; height:150px;
+	border:2px #606060 dotted;
+	/* overflow:hidden; */
+}
+/* 소스 */
+#box {
+	position:absolute;
+	left:-100px; top:50px;
+	width:100px; height:50px;
+	background-color: #00e0ff; }
+</style>
+
+</head>
+<body >
+
+<div id="mas">
+
+	<div id="box"></div>
+
+</div>
+<script>
+	// 시작점
+	let start = -100;
+	function motion(){
+		start += 3;
+		if(start > 300){
+			start = -100;
+		}
+		document.querySelector('#box').style.left = start + 'px';
+
+	}
+	setInterval(motion, 40);
+</script>
+</body>
+</html>
