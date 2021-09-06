@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prtfolio</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/modal.css">
+</head>
+<body>
+    <div id="box03">
+      <article>
+      <h3>Portfolio</h3>
+        <div>
+      <ul>
+        <li>
+          <figure>
+            <img src="images/pic01.png" alt="작품1" name="0">
+            <figcaption>
+              <dl>
+                <dt>title1</dt>
+                <dd>Hyundai Offical Site Design Renewal & Coding</dd>
+              </dl>
+            </figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <img src="images/pic02.png" alt="작품1" name="1">
+            <figcaption>
+              <dl>
+                <dt>title2</dt>
+                <dd>Hyundai Offical Site Design Renewal & Coding</dd>
+              </dl>
+            </figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <img src="images/pic03.png" alt="작품1" name="2">
+            <figcaption>
+              <dl>
+                <dt>title3</dt>
+                <dd>Hyundai Offical Site Design Renewal & Coding</dd>
+              </dl>
+            </figcaption>
+          </figure>
+        </li>
+      </ul>
+        </div>
+      </article>
+      <section id="modal">
+        <div>
+          <h3>title</h3>
+          <figure>
+            <img src="images/pic01.png" alt="작품명">
+            <figcaption>
+              <dl>
+                <dt>제작년도</dt>
+                <dd>?????</dd>
+                <dt>사용프로그램</dt>
+                <dd>???????</dd>
+                <dt>설명</dt>
+                <dd>??????????</dd>
+              </dl>
+            </figcaption>
+          </figure>
+        </div>
+        <p id="mClose">
+          <span></span>
+          <span></span>
+        </p>
+      </section>
+    </div>
+    <script>
+      // 시스템 
+      // 생성자 함수
+      function MODAL(title, pic, year, program, text){
+        this.title = title;
+        this.pic = pic;
+        this.year = year;
+        this.program = program;
+        this.text = text;
+      }
+
+      // prototype
+      MODAL.prototype.action = function(){
+        // DOM 인스턴스 속성
+        document.querySelector('#modal h3').innerHTML = this.title;
+        document.querySelector('#modal figure img').setAttribute('src', this.pic);
+        document.querySelector('#modal figure img').setAttribute('alt', this.title);
+        document.querySelector('#modal dl>dd:nth-child(2)').innerHTML = this.year;
+        document.querySelector('#modal dl>dd:nth-child(4)').innerHTML = this.program;
+        document.querySelector('#modal dl>dd:nth-child(6)').innerHTML = this.text;
+
+      }
+      // 인스턴스
+      let modal = [
+        new MODAL('title01' , 'images/pic01.png' , '2020' , 'program01' , '설명1'),
+        new MODAL('title02' , 'images/pic02.png' , '2021' , 'program02' , '설명2'),
+        new MODAL('title03' , 'images/pic03.png' , '2019' , 'program03' , '설명3')]
+      // 함수
+      function play(){
+        document.querySelector('#modal').style.display = 'block';
+        num = this.getAttribute('name');
+        modal[num].action();
+      }
+
+      function stop(){
+        document.querySelector('#modal').style.display = 'none';
+      }
+
+      const IMG = document.querySelectorAll('#box03 li>figure>img');
+      const CLOSE =  document.querySelector('#modal #mClose');
+      // #mClose -> click -> #modal -> style -> display -> none
+      // console.log(IMG);
+      console.log(IMG);
+      IMG.forEach(function(IMG){
+        IMG.addEventListener('click', play);
+      });
+
+      CLOSE.addEventListener('click' , stop);
+
+      
+    </script>
+</body>
+</html>
