@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>스크롤 갤러리2</title>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/style2.css">
+</head>
+<body>
+<div id="mas">
+<div id="gall">
+  <ul class="box">
+  <li>01</li>
+  <li>02</li>
+  <li>03</li></ul>
+</div>
+
+<div id="left"><a href="#">prev</a></div>
+<div id="right"><a href="#">next</a></div>
+</div>
+<script>
+/*
+  const temp = document.querySelector('.box').cloneNode(true);
+  console.log(temp);
+  document.querySelector('#gall').append(temp);
+
+  let start = 0;
+  let speed = -1;
+*/
+  /*
+  function leftMotion(){
+    start += speedLeft;
+    if(start < - 300){
+      start = 0;
+    }
+    document.querySelector('#gall').style.left = start+'px';
+  }
+
+  function rightMotion(){
+    start += speedRight;
+    if( start > 0 ){
+      start = -300;
+    }
+    document.querySelector('#gall').style.left = start+'px';
+  }
+  */
+/*
+  function motion(speed){
+    if(speed < 0){
+      start += speed;
+      if( speed < -300){
+        start = 0;
+      }
+      document.querySelector('#gall').style.left = start +'px';
+    }
+    else if(speed > 0){
+      start += speed;
+      if( speed > 0){
+        start = -300;
+      }
+      document.querySelector('#gall').style.left = start + 'px';
+    }
+  }
+
+  function left(){
+    speed = -1;
+     mm = setInterval(motion(speed), 10);
+  }
+  function right(){
+    speed = 1;
+    mm = setInterval(motion(speed), 10);
+  }
+  function stop(){
+    clearInterval(mm);
+  }
+  left();
+
+  const BTN = document.querySelectorAll('ul>li');
+  BTN.forEach(function(BTN){
+    BTN.addEventListener('mouseover', stop);
+  });
+  BTN.forEach(function(BTN){
+    BTN.addEventListener('mouseout', motion);
+  });
+
+
+  const LBTN = document.querySelector('#left');
+  const RBTN = document.querySelector('#right');
+  LBTN.addEventListener('click', left);
+  RBTN.addEventListener('click', right);
+*/
+
+// 준비하기
+let start = 0;
+let speed = -1;
+
+// 타이머의 함수
+function motion(){
+  start += speed;
+  if(start < -300){
+    start = 0;
+  }
+  if(start > 0){
+    start = -300;
+  }
+  document.querySelector('#gall').style.left = start +'px';
+}
+
+function play(){
+  mm = setInterval(motion, 20);
+}
+function stop(){
+  clearInterval(mm);
+}
+play();
+
+// DOM
+const Temp = document.querySelector('.box').cloneNode(true);
+document.querySelector('#gall').append(Temp);
+
+// event
+const BTN = document.querySelectorAll('ul>li');
+BTN.forEach(function(BTN){
+  BTN.addEventListener('mouseover',stop);
+});
+BTN.forEach(function(BTN){
+  BTN.addEventListener('mouseout',play);
+});
+
+const LEFT = document.querySelector('#left');
+const RIGHT = document.querySelector('#right');
+console.log(LEFT, RIGHT);
+LEFT.addEventListener('click', function(){
+  // speed -> -1 * -1
+  speed *= -1;
+});
+RIGHT.addEventListener('click', function(){
+  // speed -> -1 * -1
+  speed *= -1;
+});
+
+
+</script>
+</body>
+</html>

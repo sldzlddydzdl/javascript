@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>스크롤 갤러리1</title>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+<div id="mas">
+  <div id="gall">
+    <ul class="box">
+      <li>01</li>
+      <li>02</li>
+      <li>03</li>
+    </ul>
+  </div>
+</div>
+<script>
+  // 준비하기
+   let start = 0; // 시작점
+   let speed = -1; // 속도 , 방향
+   
+  // 움직임 함수
+  function motion(){
+    start += speed;
+    if(start < -300){
+      start = 0;
+    }
+    document.querySelector('#gall').style.left = start + 'px';
+  }
+  // DOM 준비 
+// 1. 복제
+  const temp = document.querySelector('.box').cloneNode(true);
+  console.log(temp);
+// 2. 추가
+  document.querySelector('#gall').append(temp);
+// 3. 타이머 작동
+function play(){
+  mm = setInterval(motion, 20);
+}
+
+// 멈추는 함수
+function stop(){
+  clearInterval(mm);
+}
+play();
+
+/*
+const BTN = document.querySelector('#gall');
+console.log(BTN);
+BTN.addEventListener('mouseover', stop);
+BTN.addEventListener('mouseout', move);
+*/
+
+const BTN = document.querySelectorAll('ul>li');
+BTN.forEach(function(BTN){
+  BTN.addEventListener('mouseover', stop);
+});
+BTN.forEach(function(BTN){
+  BTN.addEventListener('mouseout', play);
+});
+
+
+</script>
+</body>
+</html>
